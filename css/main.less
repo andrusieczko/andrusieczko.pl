@@ -1,2 +1,84 @@
+// Bootstrap overrides
+
+.app .hero-unit {
+  padding-bottom: 2em;
+  padding-top: 2em;
+  background-color: #F3F3F3;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
 body {
+}
+
+@btn-collapse-width: 120px;
+@duration: 1s;
+
+.btn-collapse-group {
+  .btn-collapse {
+    display: inline-table;
+  }
+}
+.btn-collapse {
+  .btn {
+    border-radius: 15px;
+    padding-top: 0;
+    width: @btn-collapse-width;
+    line-height: 1.4em;
+    z-index: 100;
+  }
+  .box {
+    border-radius: 15px;
+    width: @btn-collapse-width;
+    line-height: 1.4em;
+    border: 1px #2f96b4 solid;
+    padding: 4px 12px;
+    position: relative;
+    top: -1.7em;
+    z-index: -1;
+    padding-top: 2em;
+    height: 0;
+    opacity: 0;
+
+    &.out {
+      -webkit-animation-duration: @duration;
+      -webkit-animation-name: slidein;
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      
+      @-webkit-keyframes slidein {
+        from {
+          height: 159px;
+          opacity: 1;
+        }
+        
+        to {
+          height: 0;
+          opacity: 0;
+        }
+      }
+    }
+
+    &.in {
+      -webkit-animation-duration: @duration;
+      -webkit-animation-name: slideout;
+      opacity: 1;
+      height: 159px;
+      overflow: hidden;
+      
+      @-webkit-keyframes slideout {
+        from {
+          height: 0;
+          opacity: 0;
+        }
+        
+        to {
+          height: 159px;
+          opacity: 1;
+        }
+      }
+    }
+
+  }
 }
