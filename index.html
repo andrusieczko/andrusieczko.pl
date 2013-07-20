@@ -4,7 +4,9 @@
 		<meta http-equiv="Content-type" content="text/html;; charset=UTF-8" />
 		<link rel="stylesheet" href="css/libs/bootstrap.css"/>
 		<link rel="stylesheet" href="css/libs/bootstrap-responsive.css"/>
-		<link rel="stylesheet/less" href="css/libs/prettify.css"/>
+		<link rel="stylesheet" href="css/libs/prettify.css"/>
+    <link rel="stylesheet" href="css/libs/simplex-bootswatch.css"/>
+
 		<link rel="stylesheet/less" href="css/main.less"/>
 
 		<script type="text/javascript" src="js/libs/jquery-1.8.2.min.js"></script>
@@ -16,171 +18,180 @@
 		<script type="text/javascript" src="js/main.js"></script>
 	</head>
 
-	<body style="height: 100%; width: 100%; padding: 0; margin: 0">
+	<body>
 
-		<div class="row-fluid">
-			<div class="span8 offset2">
+    <div class="app">
 
-				<h2>CSS rules</h2>
+      <div class="hero-unit">
+        <span>
+          <img src="images/karol.jpg" style="width: 50px; height: 50px; border-radius: 26px;">
+        </span><span>andrusieczko.pl</span>
+      </div>
 
-				<h3>1. Naming convention</h3>
+  		<div class="row-fluid">
+  			<div class="span8 offset2">
 
-				<p>
-					Classes written in lowercase. Words splitted by - (a dash).
-				</p>
+  				<h2>CSS rules</h2>
 
-				<div class="row-fluid">
-					<div class="span6">
-						<h4>HTML</h4>
-						<pre class="prettyprint language-html">&lt;div class="content"&gt;
-  &lt;div class="sample-info"&gt;&lt;/div&gt;
-  &lt;div class="additional-content"&gt;&lt;/div&gt;
-&lt;/div&gt;</pre>
-					</div>
-					<div class="span6">
-						<h4>CSS/LESS</h4>
-						<pre class="prettyprint language-css">.content {
-  // ...
-  .sample-info {
+  				<h3>1. Naming convention</h3>
+
+  				<p>
+  					Classes written in lowercase. Words splitted by - (a dash).
+  				</p>
+
+  				<div class="row-fluid">
+  					<div class="span6">
+  						<h4>HTML</h4>
+  						<pre class="prettyprint language-html">&lt;div class="content"&gt;
+    &lt;div class="sample-info"&gt;&lt;/div&gt;
+    &lt;div class="additional-content"&gt;&lt;/div&gt;
+  &lt;/div&gt;</pre>
+  					</div>
+  					<div class="span6">
+  						<h4>CSS/LESS</h4>
+  						<pre class="prettyprint language-css">.content {
     // ...
-  }
-  .additional-content {
-    // ...
-  }
-}</pre>
-					</div>
-				</div>
+    .sample-info {
+      // ...
+    }
+    .additional-content {
+      // ...
+    }
+  }</pre>
+  					</div>
+  				</div>
 
-				<h3>2. Structure</h3>
+  				<h3>2. Structure</h3>
 
-				<p>
-					<strong>Do not</strong> create classes like
-					<code>
-						tab-content-active-button-dark
-					</code>
-					. It's better to create five classes. Then, your code will
-					be reusable (e.g.
-					<code>
-						active
-					</code>
-					can be used in another place), more readable and much more easier to maintain.
-				</p>
+  				<p>
+  					<strong>Do not</strong> create classes like
+  					<code>
+  						tab-content-active-button-dark
+  					</code>
+  					. It's better to create five classes. Then, your code will
+  					be reusable (e.g.
+  					<code>
+  						active
+  					</code>
+  					can be used in another place), more readable and much more easier to maintain.
+  				</p>
 
-				<div class="row-fluid">
-					<div class="span6">
-						<h4>HTML</h4>
-						<pre class="prettyprint language-html">&lt;div class="tab"&gt;
-  &lt;span class="title active"&gt;First tab&lt;/span&gt;
-  &lt;span class="title"&gt;Second tab&lt;/span&gt;
-  &lt;div class="content active"&gt;
-    &lt;button class="btn dark"&gt;First button&lt;/button&gt;
+  				<div class="row-fluid">
+  					<div class="span6">
+  						<h4>HTML</h4>
+  						<pre class="prettyprint language-html">&lt;div class="tab"&gt;
+    &lt;span class="title active"&gt;First tab&lt;/span&gt;
+    &lt;span class="title"&gt;Second tab&lt;/span&gt;
+    &lt;div class="content active"&gt;
+      &lt;button class="btn dark"&gt;First button&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="content"&gt;
+      &lt;button class="btn"&gt;Second button&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;</pre>
+  					</div>
+  					<div class="span6">
+  						<h4>CSS/LESS</h4>
+  						<pre class="prettyprint language-css">.tab {
+    .title {
+    	// ...
+    	&.active {
+    		text-decoration : underline;
+    	}
+    }
+    .content {
+    	// ...
+    	&.active {
+    		background-color: #f3f3f3;
+    	}
+    	.btn {
+    		// ...
+    		&.dark {
+    			background-color: #333;
+    		}
+    	}
+    }
+  }</pre>
+  					</div>
+  				</div>
+
+  				<h3>3. IDs and tags</h3>
+
+  				<p>
+  					Ids... Just don't use it. If you have to, ask somebody else and find out that you don't have to.
+  				</p>
+
+  				<p>
+  					Try to use CSS without tag names. If you write
+  					<code>
+  						div.myclass
+  					</code>
+  					- what happens, when somebody change
+  					<code>
+  						div
+  					</code>
+  					to
+  					<code>
+  						span
+  					</code>
+  					?
+  					<br />
+  					There are some exceptions. E.g. if you know that you want to style specific tags. For instance you know that all the headers in your app should be green.
+  					Then you can write
+  					<code>
+  						h1,h2,h3,h4,h5,h6 { color: green }
+  					</code>
+  					. But as long as you don't want to specify the general rule - avoid to use tags in CSS.
+  				</p>
+
+  				<h3>4. Number of styles</h3>
+
+  				Don't write any styles if you really don't need them. It's a simple rule but not as easy as it's seems :) Remember: styles are inherited.
+
+  				<div class="row-fluid">
+  					<div class="span6">
+  						<h4>Wrong</h4>
+  						<pre class="prettyprint language-html">&lt;div class="first"&gt;
+    &lt;div class="second"&gt;
+      &lt;div class="third"&gt;&lt;/div&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
-  &lt;div class="content"&gt;
-    &lt;button class="btn"&gt;Second button&lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-					</div>
-					<div class="span6">
-						<h4>CSS/LESS</h4>
-						<pre class="prettyprint language-css">.tab {
-  .title {
-  	// ...
-  	&.active {
-  		text-decoration : underline;
-  	}
+
+  // css file:
+  .first {
+    color: green;
+    .second {
+      color: green;
+    }
   }
-  .content {
-  	// ...
-  	&.active {
-  		background-color: #f3f3f3;
-  	}
-  	.btn {
-  		// ...
-  		&.dark {
-  			background-color: #333;
-  		}
-  	}
-  }
-}</pre>
-					</div>
-				</div>
-
-				<h3>3. IDs and tags</h3>
-
-				<p>
-					Ids... Just don't use it. If you have to, ask somebody else and find out that you don't have to.
-				</p>
-
-				<p>
-					Try to use CSS without tag names. If you write
-					<code>
-						div.myclass
-					</code>
-					- what happens, when somebody change
-					<code>
-						div
-					</code>
-					to
-					<code>
-						span
-					</code>
-					?
-					<br />
-					There are some exceptions. E.g. if you know that you want to style specific tags. For instance you know that all the headers in your app should be green.
-					Then you can write
-					<code>
-						h1,h2,h3,h4,h5,h6 { color: green }
-					</code>
-					. But as long as you don't want to specify the general rule - avoid to use tags in CSS.
-				</p>
-
-				<h3>4. Number of styles</h3>
-
-				Don't write any styles if you really don't need them. It's a simple rule but not as easy as it's seems :) Remember: styles are inherited.
-
-				<div class="row-fluid">
-					<div class="span6">
-						<h4>Wrong</h4>
-						<pre class="prettyprint language-html">&lt;div class="first"&gt;
-  &lt;div class="second"&gt;
-    &lt;div class="third"&gt;&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-// css file:
-.first {
-  color: green;
-  .second {
+  .third {
     color: green;
   }
-}
-.third {
-  color: green;
-}
-</pre>
-					</div>
-					<div class="span6">
-						<h4>Good</h4>
-						<pre class="prettyprint language-css">&lt;div class="first"&gt;
-  &lt;div&gt;
-    &lt;div&gt;&lt;/div&gt;
+  </pre>
+  					</div>
+  					<div class="span6">
+  						<h4>Good</h4>
+  						<pre class="prettyprint language-css">&lt;div class="first"&gt;
+    &lt;div&gt;
+      &lt;div&gt;&lt;/div&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;
 
-// css file:
-.first {
-	color: green;
-}</pre>												
-
+  // css file:
+  .first {
+  	color: green;
+  }</pre>												
 
 
-					</div>
-				</div>
-				<p>
-					And remember: always check if a similar solution is not implemented in Twitter Bootstrap or somewhere else! I haven't use any
-					other stylesheet than bootstrap and prettyprint.
-				</p>
-			</div>
-		</div>
+
+  					</div>
+  				</div>
+  				<p>
+  					And remember: always check if a similar solution is not implemented in Twitter Bootstrap or somewhere else! I haven't use any
+  					other stylesheet than bootstrap and prettyprint in this section related with CSS styles.
+  				</p>
+  			</div>
+  		</div>
+    </div>
 	</body>
 </html>
