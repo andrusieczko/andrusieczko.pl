@@ -16,6 +16,8 @@ $(function() {
     } else if (containsClass($box, 'in')) {
       $box.removeClass('in');
       $box.addClass('out');
+      // TODO
+      setTimeout(function() {$box.removeClass('out')}, 1000);
     } else {
       $box.removeClass('out');
       $box.addClass('in');

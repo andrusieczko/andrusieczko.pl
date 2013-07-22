@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/libs/bootstrap-responsive.css"/>
     <link rel="stylesheet" href="css/libs/prettify.css"/>
     <link rel="stylesheet" href="css/libs/simplex-bootswatch.css"/>
+    <link rel="stylesheet" href="css/libs/font-awesome.min.css"/>
 
     <link rel="stylesheet/less" href="css/main.less"/>
 
@@ -26,29 +27,29 @@
 
       <div class="hero-unit">
         <span>
-          <img src="images/karol.jpg" style="width: 50px; height: 50px; border-radius: 26px;">
+          <img src="images/karol.jpg" style="width: 70px; height: 70px; border-radius: 26px;">
         </span><span>andrusieczko.pl</span>
       </div>
 
       <div class="tabbable" style="margin-bottom: 18px;">
         <ul class="nav nav-tabs">
-          <li class=""><a href="#about-me" data-toggle="tab">About me</a></li>
-          <li class="active"><a href="#competences" data-toggle="tab">My competences</a></li>
+          <li class="active"><a href="#about-me" data-toggle="tab">About me</a></li>
+          <li class=""><a href="#competences" data-toggle="tab">My competences</a></li>
           <li><a href="#css-rules" data-toggle="tab">CSS Rules</a></li>
         </ul>
         <div class="tab-content" style="padding-bottom: 9px; border-bottom: 1px solid #ddd;">
           
-          <div class="tab-pane" id="about-me">
+          <div class="tab-pane fade active in" id="about-me">
             
             <div ng-include src="tpl('aboutMe')"></div>
 
           </div>
-          <div class="tab-pane active" id="competences">
+          <div class="tab-pane fade" id="competences">
             
             <div ng-include src="tpl('competences')"></div>
 
           </div>
-          <div class="tab-pane" id="css-rules">
+          <div class="tab-pane fade" id="css-rules">
 
             <div ng-include src="tpl('cssRules')"></div>
 

@@ -1,14 +1,27 @@
 // Bootstrap overrides
 
+@dark-brown: #362f2d;
+@light-gray: #F3F3F3;
+
+@header-background: @dark-brown;
+@header-color: @light-gray;
+
 .app .hero-unit {
   padding-bottom: 2em;
   padding-top: 2em;
-  background-color: #F3F3F3;
+  background-color: @header-background;
   border: 1px solid #ddd;
   text-align: left;
+  color: @header-color;
+  font-size: 1.4em;
+  border-radius: 0;
 }
 
 body {
+}
+
+.marketing {
+  text-align: center;
 }
 
 @btn-collapse-width: 120px;
@@ -20,12 +33,13 @@ body {
   }
 }
 .btn-collapse {
+  padding: 0 2em 0 2em;
   .btn {
     border-radius: 15px;
-    padding-top: 0;
     width: @btn-collapse-width;
     line-height: 1.4em;
     z-index: 100;
+    padding-top: 0;
   }
   .box {
     border-radius: 15px;
@@ -35,10 +49,10 @@ body {
     padding: 4px 12px;
     position: relative;
     top: -1.7em;
-    z-index: -1;
     padding-top: 2em;
     height: 0;
     opacity: 0;
+    z-index: -1;
 
     &.out {
       -webkit-animation-duration: @duration;
@@ -46,7 +60,7 @@ body {
       opacity: 0;
       height: 0;
       overflow: hidden;
-      
+
       @-webkit-keyframes slidein {
         from {
           height: 159px;
@@ -80,5 +94,15 @@ body {
       }
     }
 
+  }
+}
+
+#id { // so rare
+}
+.document {
+  .oocss {
+    .single-rule {
+      
+    }
   }
 }
