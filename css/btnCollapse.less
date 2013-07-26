@@ -1,0 +1,95 @@
+@btn-collapse-width: 235px;
+@btn-collapse-height: 220px;
+@duration: 1s;
+@background-gradient-top: #777;
+@background-gradient-bottom: #333;
+
+.btn-gray {
+
+	color: #fff;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+	background-color: #555;
+	background-image: -moz-linear-gradient(top,@background-gradient-top,@background-gradient-bottom);
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(@background-gradient-top),to(@background-gradient-bottom));
+	background-image: -webkit-linear-gradient(top,@background-gradient-top,@background-gradient-bottom);
+	background-image: -o-linear-gradient(top,@background-gradient-top,@background-gradient-bottom);
+	background-image: linear-gradient(to bottom,@background-gradient-top,@background-gradient-bottom);
+	background-repeat: repeat-x;
+	border-color: #555 #555 #333;
+	border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+}
+.btn-gray:hover, .btn-gray:focus, .btn-gray:active, .btn-gray.active, .btn-gray.disabled, .btn-gray[disabled] {
+	color: #fff;
+	background-color: #555;
+	background-position: 0 1.7em;
+}
+
+.btn-collapse-group {
+  .btn-collapse {
+    display: inline-table;
+  }
+}
+.btn-collapse {
+  padding: 0 2em 0 2em;
+  .btn {
+    border-radius: 15px;
+    width: @btn-collapse-width;
+    line-height: 1.4em;
+    z-index: 100;
+    padding-top: 0;
+  }
+  .box {
+    border-radius: 15px;
+    width: @btn-collapse-width;
+    line-height: 1.4em;
+    border: 1px @background-gradient-bottom solid;
+    padding: 4px 12px;
+    position: relative;
+    top: -1.7em;
+    padding-top: 2em;
+    height: 0;
+    opacity: 0;
+    z-index: -1;
+
+    &.out {
+      -webkit-animation-duration: @duration;
+      -webkit-animation-name: slidein;
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+
+      @-webkit-keyframes slidein {
+        from {
+          height: @btn-collapse-height;
+          opacity: 1;
+        }
+        
+        to {
+          height: 0;
+          opacity: 0;
+        }
+      }
+    }
+
+    &.in {
+      -webkit-animation-duration: @duration;
+      -webkit-animation-name: slideout;
+      opacity: 1;
+      height: @btn-collapse-height;
+      overflow: hidden;
+      
+      @-webkit-keyframes slideout {
+        from {
+          height: 0;
+          opacity: 0;
+        }
+        
+        to {
+          height: @btn-collapse-height;
+          opacity: 1;
+        }
+      }
+    }
+
+  }
+}
