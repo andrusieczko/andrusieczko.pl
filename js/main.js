@@ -30,4 +30,17 @@ function Ctrl($scope) {
   $scope.tpl = function(template) {
     return template + ".html";
   };
+
+  // TODO: do a directive here
+  $scope.scrollToWorld = function() {
+    $.scrollTo('.about-section.world', 750);
+  };
+
+  $scope.scrollToUsa = function() {
+    $.scrollTo('.about-section.usa', 750);
+  };
+
+  $scope.scrollToLanguages = function() {
+    $.scrollTo('.about-section.languages', 750);
+  };
 }
