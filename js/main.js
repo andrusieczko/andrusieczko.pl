@@ -1,3 +1,5 @@
+// TODO: this is ridiculous :P I'm making my homepage and this is what code I'm producing :P
+// it wouldn't have any chance to be allowed in our code reviews...
 var containsClass = function($el, clazz) {
   return $el.attr('class').indexOf(clazz) >= 0;
 };
