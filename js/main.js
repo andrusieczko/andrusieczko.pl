@@ -1,48 +1,24 @@
-// TODO: this is ridiculous :P Try I'm making my homepage and this is what code I'm producing :P
-// it wouldn't have any chance to be allowed in our code reviews...
-var containsClass = function($el, clazz) {
-  return $el.attr('class').indexOf(clazz) >= 0;
+var scrollToDirective = function() {
+  return function(scope, element, attrs) {
+    var target = attrs.scrollto;
+    element.bind('click', function() {
+      $.scrollTo(target, 750);
+    });
+  };
 };
 
-$(function() {
-	prettyPrint();
+var prettyPrintDirective = function() {
+  return function(scope, element, attrs) {
+    prettyPrint();
+  };
+};
 
-  var $btnCollapse = $('.btn-collapse');
-  $btnCollapse.find('.btn').live('click', function(ev) {
-    var $btn = $(ev.target);
-    var $theBtnCollapse = $btn.parent('.btn-collapse');
-    var $box = $theBtnCollapse.find('.box');
-
-    if (!containsClass($box, 'in') && !containsClass($box, 'out')) {
-      $box.addClass('in');
-    } else if (containsClass($box, 'in')) {
-      $box.removeClass('in');
-      $box.addClass('out');
-      // TODO
-      setTimeout(function() {$box.removeClass('out')}, 1000);
-    } else {
-      $box.removeClass('out');
-      $box.addClass('in');
-    }
-  });
-
-});
+var app = angular.module('andrusieczko-app', []);
+app.directive('scrollto', scrollToDirective);
+app.directive('prettyprint', prettyPrintDirective);
 
 function Ctrl($scope) {
   $scope.tpl = function(template) {
     return template + ".html";
-  };
-
-  // TODO: do a directive here
-  $scope.scrollToWorld = function() {
-    $.scrollTo('.about-section.world', 750);
-  };
-
-  $scope.scrollToUsa = function() {
-    $.scrollTo('.about-section.usa', 750);
-  };
-
-  $scope.scrollToLanguages = function() {
-    $.scrollTo('.about-section.languages', 750);
   };
 }

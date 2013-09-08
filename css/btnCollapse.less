@@ -1,26 +1,28 @@
-@btn-collapse-width: 235px;
-@btn-collapse-height: 225px;
-@duration: 1s;
+@btn-color: #fff;
+@btn-background-color: #555;
+@btn-radius: 15px;
 @background-gradient-top: #777;
 @background-gradient-bottom: #333;
 
-.btn-gray {
+@btn-collapse-width: 235px;
+@btn-collapse-height: 225px;
+@animation-duration: 0.5s;
 
-	color: #fff;
+
+.btn-gray {
+	color: @btn-color;
 	text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
-	background-color: #555;
+	background-color: @btn-background-color;
 	background-image: -moz-linear-gradient(top,@background-gradient-top,@background-gradient-bottom);
 	background-image: -webkit-gradient(linear,0 0,0 100%,from(@background-gradient-top),to(@background-gradient-bottom));
 	background-image: -webkit-linear-gradient(top,@background-gradient-top,@background-gradient-bottom);
 	background-image: -o-linear-gradient(top,@background-gradient-top,@background-gradient-bottom);
 	background-image: linear-gradient(to bottom,@background-gradient-top,@background-gradient-bottom);
 	background-repeat: repeat-x;
-	border-color: #555 #555 #333;
-	border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
 }
 .btn-gray:hover, .btn-gray:focus, .btn-gray:active, .btn-gray.active, .btn-gray.disabled, .btn-gray[disabled] {
 	color: #fff;
-	background-color: #555;
+	background-color: @btn-background-color;
 	background-position: 0 1.7em;
 }
 
@@ -30,16 +32,16 @@
   }
 }
 .btn-collapse {
-  padding: 0 2em 0 2em;
+  padding: 0 2em 1em 2em;
   .btn {
-    border-radius: 15px;
+    border-radius: @btn-radius;
     width: @btn-collapse-width;
     line-height: 1.4em;
     z-index: 100;
     padding-top: 0;
   }
   .box {
-    border-radius: 15px;
+    border-radius: @btn-radius;
     width: @btn-collapse-width;
     line-height: 1.4em;
     border: 1px @background-gradient-bottom solid;
@@ -47,49 +49,34 @@
     position: relative;
     top: -1.7em;
     padding-top: 2em;
-    height: 0;
-    opacity: 0;
     z-index: -1;
+  }
 
-    &.out {
-      -webkit-animation-duration: @duration;
-      -webkit-animation-name: slidein;
-      opacity: 0;
-      height: 0;
-      overflow: hidden;
+  /* animations */
 
-      @-webkit-keyframes slidein {
-        from {
-          height: @btn-collapse-height;
-          opacity: 1;
-        }
-        
-        to {
-          height: 0;
-          opacity: 0;
-        }
-      }
-    }
+  .box-hide, .box-show {
+    -webkit-transition:all linear @animation-duration;
+    -moz-transition:all linear @animation-duration;
+    -o-transition:all linear @animation-duration;
+    transition:all linear @animation-duration;
+  }
 
-    &.in {
-      -webkit-animation-duration: @duration;
-      -webkit-animation-name: slideout;
-      opacity: 1;
-      height: @btn-collapse-height;
-      overflow: hidden;
-      
-      @-webkit-keyframes slideout {
-        from {
-          height: 0;
-          opacity: 0;
-        }
-        
-        to {
-          height: @btn-collapse-height;
-          opacity: 1;
-        }
-      }
-    }
+  .box.box-show.box-show-active,
+  .box.box-hide {
+    opacity:1;
+    height: @btn-collapse-height;
+  }
 
+  .box.box-hide.box-hide-active,
+  .box.box-show {
+    opacity:0;
+    height: 0px;
+  }
+
+  .box {
+    height: @btn-collapse-height;
+    opacity: 1;
+    overflow: hidden;
   }
 }
+

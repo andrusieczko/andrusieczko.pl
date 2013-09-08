@@ -1,11 +1,11 @@
 <div class="row-fluid">
   <div class="span10 offset1">
-    
+
     <div class="btn-collapse-group">
 
       <div class="btn-collapse">
-        <a class="btn btn-gray">JavaScript</a>
-        <div class="box">
+        <a class="btn btn-gray" ng-click="js=!js">JavaScript</a>
+        <div class="box" ng-show="js" ng-animate="'box'">
           <span>Experienced with:</span>
           <ul>
             <li>backbone.js (+ many extensions - my everyday work)</li>
@@ -22,17 +22,17 @@
       </div>
     
       <div class="btn-collapse">
-        <a class="btn btn-gray">CSS3 <i class="icon-css3"></i></a>
-        <div class="box">
+        <a class="btn btn-gray" ng-click="css=!css">CSS3 <i class="icon-css3"></i></a>
+        <div class="box" ng-show="css" ng-animate="'box'">
           <p>I mainly use LESS to express my CSS thoughts. I like to write as 
-          less CSS as possible<!-- (<a href="#css-rules">read more</a>)-->.</p>
+          less CSS as possible.</p>
           <p>It's a part of my current job + I really enjoy thinking if something can be done using less code :D</p>
         </div>
       </div>
 
       <div class="btn-collapse">
-        <a class="btn btn-gray">HTML5 <i class="icon-html5"></i></a>
-        <div class="box">
+        <a class="btn btn-gray" ng-click="html=!html">HTML5 <i class="icon-html5"></i></a>
+        <div class="box" ng-show="html" ng-animate="'box'">
           <p>HTML5 - web programming is so much more fun with HTML5 now! One of my roles in my current job is to 
           prepare quick mockups with use of HTML5+CSS3+angular.js. I often do it with a stakeholder sitting 
           nearby :)</p>
@@ -44,21 +44,21 @@
     <div class="btn-collapse-group">
 
       <div class="btn-collapse">
-        <a class="btn btn-gray">Java</a>
-        <div class="box">
+        <a class="btn btn-gray" ng-click="java=!java">Java</a>
+        <div class="box" ng-show="java" ng-animate="'box'">
           I've worked in Java for 2.5 years. I used to work in a very ambitious project for 2 years, now I'm using Java for writing some functional GUI tests in my current project. Java for me is a place where I can forget for a while about the crazy world of JavaScript and write something really logical and with a sophisticated architecture :)
         </div>
       </div>
 
 
       <div class="btn-collapse">
-        <a class="btn btn-gray">PHP</a>
-        <div class="box">PHP... That's a hard topic. I obviously know this language - because of my job (we've got backend written in PHP) and my previous works (most of them in PHP). The reason that I mention it is that I'm a little bit experienced in Symfony and object oriented PHP.</div>
+        <a class="btn btn-gray" ng-click="php=!php">PHP</a>
+        <div class="box" ng-show="php" ng-animate="'box'">PHP... That's a hard topic. I obviously know this language - because of my job (we've got backend written in PHP) and my previous works (most of them in PHP). The reason that I mention it is that I'm a little bit experienced in Symfony and object oriented PHP.</div>
       </div>
     
       <div class="btn-collapse">
-        <a class="btn btn-gray">Python</a>
-        <div class="box">Sometimes I'm writing something in Python just for fun. I've created several websites based on Django. The language itself is amazing, I especially like the functional programming and all these easy operations on lists/structures. I'm not yet experienced commercially.</div>
+        <a class="btn btn-gray" ng-click="python=!python">Python</a>
+        <div class="box" ng-show="python" ng-animate="'box'">Sometimes I'm writing something in Python just for fun. I've created several websites based on Django. The language itself is amazing, I especially like the functional programming and all these easy operations on lists/structures. I'm not yet experienced commercially.</div>
       </div>
 
 
@@ -67,8 +67,8 @@
     <div class="btn-collapse-group">
 
       <div class="btn-collapse">
-        <a class="btn btn-gray">Favourite language</a>
-        <div class="box">
+        <a class="btn btn-gray" ng-click="favlang=!favlang">Favourite language</a>
+        <div class="box" ng-show="favlang" ng-animate="'box'">
           My dream would be to have a language which:
           <ul>
             <li>gives such a convinience in programming as Java</li>
@@ -81,15 +81,15 @@
       </div>
 
       <div class="btn-collapse">
-        <a class="btn btn-gray">Organizational</a>
-        <div class="box">
+        <a class="btn btn-gray" ng-click="organizational=!organizational">Organizational</a>
+        <div class="box" ng-show="organizational" ng-animate="'box'">
           I'm coordinating quite a big project at the moment. I love talking to people much more than programming. I can't image my work without communication with others. One of my main personal goals is to convince people that all the stakeholders and programmers are one team, they should work together. It would be awesome if they could go for beer together!
         </div>
       </div>
 
        <div class="btn-collapse">
-        <a class="btn btn-gray">Team</a>
-        <div class="box">
+        <a class="btn btn-gray" ng-click="team=!team">Team</a>
+        <div class="box" ng-show="team" ng-animate="'box'">
           <p>I work with an amazing team! We're all trying to learn from each other, we're trying to be better each day. We're all searching for the best solutions in StackOverflow, we all love to go for several beers.</p>
           <p>Why did I put it here? Because I don't imagine the work without a great integration with a team. Team work is often more important than particular individual's skills.</p>
         </div>
