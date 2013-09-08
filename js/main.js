@@ -19,6 +19,6 @@ app.directive('prettyprint', prettyPrintDirective);
 
 function Ctrl($scope) {
   $scope.tpl = function(template) {
-    return template + ".html";
+    return "templates/" + template + ".html";
   };
 }
